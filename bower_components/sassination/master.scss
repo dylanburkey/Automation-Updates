@@ -237,12 +237,64 @@ $default-space-small: 1em;
 	@include font-size(16px);
 }
 
-.header {
+.header,
+%header {
 	color: $lincoln-red;
 	font-weight: 600;
+	text-transform: capitalize;
 }
 
 	.header_upper {
 		@extend .header;
 		text-transform: uppercase;
 	}
+
+/**
+ * UI Header
+ */
+
+ .ui-header {
+ 	background: url(http://www.lincolnelectric.com/assets/US/EN/store/staged-assets/fade-image.jpg);
+ }
+
+ 	.ui-header_text {
+		padding: .325em 0;
+		text-indent: 10px;
+ 	}
+
+/*----------------------------------------------------------------------------*\
+
+	#Tabs
+
+\*----------------------------------------------------------------------------*/
+
+%no-bullets {
+	list-style: none;
+	padding-left: 0;
+	margin-top: 0;
+}
+
+
+.tabs {
+	@extend %no-bullets;
+	li {
+		background: $light-gray;
+		border-bottom: 1px solid #777;
+		padding: 5px 0;
+		color: $lincoln-red;
+		text-indent: .325em;
+		text-transform: capitalize;
+		@extend .header;
+	}
+}
+
+/*----------------------------------------------------------------------------*\
+
+	#Content-Section
+
+\*----------------------------------------------------------------------------*/
+
+.content-section {
+	background: $light-gray;
+	padding: $default-space-small;
+}
