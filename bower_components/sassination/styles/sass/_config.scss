@@ -1,0 +1,58 @@
+/*----------------------------------------------------------------------------*\
+
+	#Configuration
+
+\*----------------------------------------------------------------------------*/
+
+$susy: (
+		columns: 12,
+		container: auto,
+		container-position: center,
+		math: fluid,
+		global-box-sizing: border-box
+	);
+
+$base-font-size: 16px;
+$base-line-height: 24px;
+$base-font-family: sans-serif;
+$base-font-color: #222;
+
+$base-font-stack: Helvetica, Arial, sans-serif;
+
+$global-max-width: 80%;
+
+$default-color: #333;
+
+/*----------------------------------------------------------------------------*\
+
+	#Breakpoints
+
+\*----------------------------------------------------------------------------*/
+
+$tablet-bp: 481px;
+$desktop-bp: 801px;
+//$desktop-bp: 769px;
+
+$large-desktop-style: 1339px;
+
+
+/*----------------------------------------------------------------------------*\
+
+	#lincoln-colors
+
+\*----------------------------------------------------------------------------*/
+
+$lincoln-red: #be1e2d;
+$black: rgb(0,0,0);
+$white: rgb(255,255,255);
+$red: rgb(190,30,45);
+
+$tan: rgb(228,227,207);
+$dark-red: rgb(139,14,26);
+
+$dark-black: #333;
+$b75: rgb(102,102,102);
+$b50: rgb(153,153,153);
+$b25: rgb(204,204,204);
+$b10: rgb(230,230,230);
+

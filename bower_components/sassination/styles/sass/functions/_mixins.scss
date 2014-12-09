@@ -1,0 +1,45 @@
+/*----------------------------------------------------------------------------*\
+
+	#Mixins
+
+\*----------------------------------------------------------------------------*/
+
+@mixin box-sizing($type: border-box) {
+	&,&:before,&:after {
+		-moz-box-sizing: $type;
+		-webkit-box-sizing: $type;
+		box-sizing: $type;
+	}
+}
+
+@mixin font-size($font-size, $line-height:true){
+    font-size:$font-size;
+    font-size:($font-size / $base-font-size)*1rem;
+    @if $line-height == true{
+        line-height:ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+    }
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin large-desktop-style {
+	@media (min-width: $large-desktop-style){
+		@content;
+	}
+}
+
+@mixin desktop-style {
+	@media (min-width: $desktop-bp){
+		@content;
+	}
+}
+
+@mixin tablet-style {
+	@media (min-width: $tablet-bp){
+		@content;
+	}
+}

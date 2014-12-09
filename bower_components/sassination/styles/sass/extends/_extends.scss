@@ -1,0 +1,46 @@
+/*----------------------------------------------------------------------------*\
+
+	#Extends
+
+\*----------------------------------------------------------------------------*/
+
+%cf {
+	&:after {
+		content: "";
+		clear: both;
+		display: block;
+	}
+}
+
+
+%float_left {
+	float: left;
+}
+
+%float_right {
+	float: right;
+}
+
+%display_block {
+	display: block;
+}
+
+%display_inline-block {
+	display: inline-block;
+}
+
+%display_inline {
+	display: inline;
+}
+
+%display_none {
+	display: none;
+}
+
+%pos_relative {
+	position: relative;
+}
+
+%pos_absolute {
+	position: absolute;
+}

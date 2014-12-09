@@ -1,0 +1,300 @@
+/*----------------------------------------------------------------------------*\
+
+	#TIG-styles
+
+\*----------------------------------------------------------------------------*/
+
+/**
+ *
+ TIG Container
+ */
+
+.tig-container {
+ 	max-width: 1224px;
+ 	margin: 2em auto;
+ 	position: relative;
+ 	@extend %cf;
+ }
+
+ .tig-bg-img {
+ 	background: url(media/tribal-bg_3.png);
+ 	background-repeat: no-repeat;
+	background-position: top right;
+	background-size: 30%;
+ }
+
+a {
+	color: $lincoln-red;
+ }
+
+
+/**
+ *
+ Page Background
+ */
+
+
+.page-bg {
+	background-color: #1a1a1a;
+ }
+
+/**
+ *
+ Role Specific Changes
+ */
+
+.page-container {
+	max-width: 90%;
+	margin: auto;
+	@extend %pos_relative;
+	color: #fff;
+	overflow: auto;
+	@extend %cf;
+	&[role="main"]{
+		margin-top: 3em;
+	}
+}
+
+/*----------------------------------------------------------------------------*\
+
+	#Header-styles
+
+\*----------------------------------------------------------------------------*/
+
+.ui-dark_text {
+	color: #999;
+ }
+
+.page-title {
+	text-align: center;
+	@include font-size(40px);
+	font-weight: 600;
+	text-transform: uppercase;
+	color: #fff;
+	@extend %cf;
+}
+.col-header {
+	@include font-size(20px);
+	margin-bottom: .325em;
+	text-transform: uppercase;
+	@extend %cf;
+}
+
+/**
+ *
+ TIG Columns
+ */
+
+%tig-row {
+	@extend %pos_relative;
+	padding: 1em 0;
+	@extend %cf;
+}
+
+.row {
+	@extend %tig-row;
+}
+.content-wrap {
+	@extend %cf;
+}
+
+.input-wrap {
+	margin-bottom: 2em;
+	@extend %cf;
+}
+
+.content-section {
+	//margin: 1em 0;
+	@extend %cf;
+}
+
+
+/*----------------------------------------------------------------------------*\
+
+	#Font-colors
+
+\*----------------------------------------------------------------------------*/
+
+.reg-questions {
+	color: #be1e2d;
+	text-decoration: underline;
+	@include font-size(18px);
+	text-transform: uppercase;
+	@extend %cf;
+}
+
+
+/*----------------------------------------------------------------------------*\
+
+	#Grid-Changes
+
+\*----------------------------------------------------------------------------*/
+
+.col-6 {
+	@include span(12 of 12);
+	text-align: center;
+
+	&.bottom-col {
+		margin-top: 2em;
+	}
+	@extend %cf;
+}
+
+
+/*----------------------------------------------------------------------------*\
+
+	#Form-ui
+
+\*----------------------------------------------------------------------------*/
+
+.input-text {
+	width: 60%;
+	@include font-size(28px);
+	border: none;
+	outline: none;
+}
+
+
+.input-wrap {
+	.form-ui_submit {
+		padding: .25em;
+		width: 40%;
+		@include font-size(22px);
+	}
+}
+
+/*----------------------------------------------------------------------------*\
+
+	#tig-video
+
+\*----------------------------------------------------------------------------*/
+
+.tig-video {
+	.fluid-media {
+		max-width: 100%;
+		iframe {
+			width: 560px;
+			height: 315px;
+		}
+	}
+	@extend %cf;
+}
+
+/*----------------------------------------------------------------------------*\
+
+	#Fluid-media
+
+\*----------------------------------------------------------------------------*/
+
+
+.fluid-media {
+	img,
+	canvas,
+	iframe,
+	video,
+	svg {
+		max-width:100%;
+	}
+
+	.overflow-container {
+		overflow-y:scroll;
+		-webkit-overflow-scrolling:touch;
+	}
+
+}
+
+
+/*----------------------------------------------------------------------------*\
+
+	#Mobile-helpers
+
+\*----------------------------------------------------------------------------*/
+
+.hide_mobile {
+	display: none;
+}
+
+/*----------------------------------------------------------------------------*\
+
+	#Tablet-styles
+
+\*----------------------------------------------------------------------------*/
+
+@include tablet-style{
+	.hide_tablet {
+		display: none;
+	}
+
+	.page-container {
+		max-width: 98%;
+		&.small {
+			max-width: 90%;
+		}
+	}
+		.page-title {
+			@include font-size(50px);
+		}
+		.col-header {
+		@include font-size(32px);
+	}
+
+
+}
+
+/*----------------------------------------------------------------------------*\
+
+	#Desktop-styles
+
+\*----------------------------------------------------------------------------*/
+
+@include desktop-style {
+	.hide_desktop {
+		display: none;
+	}
+
+	.page-container {
+		max-width: 90%;
+		&.small {
+			max-width: 90%;
+		}
+	}
+
+	.page-title {
+		@include font-size(62px);
+	}
+	.col-header {
+		@include font-size(28px);
+	}
+
+	.col-6 {
+		clear: none;
+		text-align: left;
+		@include span(6 of 12);
+		&.last {
+			@include last();
+		}
+
+		&.bottom-col {
+			margin-top: 0;
+		}
+
+	}
+
+}
+
+
+/*----------------------------------------------------------------------------*\
+
+	#Large-desktop-styles
+
+\*----------------------------------------------------------------------------*/
+
+
+@include large-desktop-style{
+	.page-container {
+		max-width: 90%;
+		&.small {
+			max-width: 50%;
+		}
+	}
+}
