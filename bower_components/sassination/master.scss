@@ -9,7 +9,7 @@
 @import "styles/sass/config";
 @import "styles/sass/extends/extends";
 @import "styles/sass/functions/mixins";
-//@import "styles/sass/libs/normalize";
+@import "styles/sass/libs/normalize";
 
 $default-space: 2em;
 $default-space-small: 1em;
@@ -35,9 +35,15 @@ $default-space-small: 1em;
 
 .marketing-page {
 	@include box-sizing(border-box);
-	max-width: 100%;
-	font-family: 'Titillium Web', Helvetica, Arial, $base-font-family;
-	margin-top: 3em;
+	@extend %cf;
+	font-family: 'Titillium Web', Helvetica, arial, sans-serif;
+	font-size: 100%;
+}
+
+.sharepoint {
+	width: 980px;
+	margin: 0 auto;
+	@extend %pos_relative;
 	@extend %cf;
 }
 
@@ -170,250 +176,63 @@ $default-space-small: 1em;
 }
 
 
-/*----------------------------------------------------------------------------*\
-
-	#Automation Styles
-
-\*----------------------------------------------------------------------------*/
-
-.global-container {
-	margin: auto;
-	max-width: 980px;
-	@extend %pos_relative;
-	@extend %cf;
-
-	a {
-		text-decoration: none;
-		&:hover {
-			text-decoration: none;
-			outline: none;
-		}
-	}
-}
-
-.row {
-	margin-left: auto;
-	margin-right: auto;
-	@extend %pos_relative;
-	@extend %cf;
-
-	&.tall {
-		margin: 2em 0;
-	}
-
-	&.medium {
-		margin: 1.5em 0;
-	}
-
-	&.small {
-		margin: .625em 0;
-	}
-
-	&.base {
-		margin: 1em 0;
-	}
-}
-
 
 /*----------------------------------------------------------------------------*\
 
-	#Media
+	#Rows
 
 \*----------------------------------------------------------------------------*/
 
-/**
- * Hero images need to have a max-width of 100% to keep them within container
- */
-
-.content-img > img,
-.hero-img > img {
-	max-width: 100%;
-}
-
-.video-container {
+.row,
+%row {
 	@extend %pos_relative;
-	width: 50%;
-	height: 0;
-	overflow: auto;
 	@extend %cf;
+	&.first {
+		margin-top: 0;
+	}
+	&.vspace {
+		margin-top: $default-space;
+	}
+
 }
 
-.fluid-video {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+
+.row-container {
+	@extend %row;
 }
 
 /*----------------------------------------------------------------------------*\
 
-	#Content-Containers
+	#Image-Container
 
 \*----------------------------------------------------------------------------*/
 
-.content-container {
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 98%;
-	@extend %cf;
-	@extend %pos_relative;
+.image-container {
+	@extend %row;
 }
-
-
-/**
- * Content Headers are used within container containers
- */
-
-.content-header {
-	@include font-size(17px);
-	color: $lincoln-red;
-	font-weight: bold;
-	text-transform: capitalize;
-
-	&.small {
-		@include font-size(15px);
-	}
-
-
-}
-
-/**
- * the .content class is used to wrap your text within a content-container
- */
-.content,
-.content-header {
-	margin: 0;
-	padding: 0;
-	@extend %cf;
-}
-
-.content > p {
-	margin-top: .625em;
-}
-
-.content-img {
-	margin: 2em 0;
-	height: 150px;
-	overflow: hidden;
-	@extend %cf;
-}
-
-
-.content-group {
-	background: #ddd;
-	border-top: thin solid $lincoln-red;
-}
-
 
 /*----------------------------------------------------------------------------*\
 
-	#Marketing-Page
+	#Headline sizes
 
 \*----------------------------------------------------------------------------*/
 
-[id="marketing"] {
-	font-family: Helvetica, Arial, sans-serif;
-	@include font-size(14px);
+.headline-1 {
+	@include font-size(42px);
 }
-
-
-
-
-%button {
-	border: thin solid #111;
-	outline: none;
-}
-
-
-
-/*----------------------------------------------------------------------------*\
-
-	#Decorate
-
-\*----------------------------------------------------------------------------*/
-
-.visual-break {
-	width: 98%;
-	margin: auto;
-	@extend %pos_relative;
-	background: #eee;
-	padding: .3125em 0;
-}
-
-.visual-space {
-	margin-top: 2em;
-}
-
-
-/*----------------------------------------------------------------------------*\
-
-	#Layout Extends
-
-\*----------------------------------------------------------------------------*/
-
-
-.content-list {
-	list-style-type: none;
-	padding-left: 0;
-	@extend %cf;
-}
-
-.visual-bg {
-	background: #ddd;
-	@extend %pos_relative;
-	padding: .3125em;
-}
-
-.media-container {
-	@extend %pos_relative;
-	display: block;
-	@extend %cf;
-	> img {
-		max-width: 100%;
-	}
-}
-
-
-
-%button {
-	border: thin solid #111;
-	outline: none;
-}
-
-
-@mixin create-button($button-name,$button-color){
-	.#{"btn"}-#{$button-name}{
-		@extend %button;
-		background: #{$button-color};
-	}
-}
-
-@include create-button(large,blue);
-@include create-button(small,blue);
-
-/*----------------------------------------------------------------------------*\
-
-	#Headline Styles
-
-\*----------------------------------------------------------------------------*/
 
 .headline-2 {
-	@include font-size(44px);
-}
-
-.headline-3 {
 	@include font-size(36px);
 }
-
+.headline-3 {
+	@include font-size(32px);
+}
 .headline-4 {
-	@include font-size(26px);
+	@include font-size(28px);
 }
-
 .headline-5 {
-	@include font-size(22px);
+	@include font-size(24px);
 }
-
 .headline-6 {
 	@include font-size(16px);
 }
@@ -421,242 +240,9 @@ $default-space-small: 1em;
 .header {
 	color: $lincoln-red;
 	font-weight: 600;
-	text-transform: uppercase;
-	font-family: 'Titillium', Helvetica, Arial, sans-serif;
 }
 
-
-.ui-header {
-	background: #e6e7e8;
-	background: url(http://www.lincolnelectric.com/assets/US/EN/store/staged-assets/fade-image.jpg);
-}
-.ui-header > .headline-2 {
-	padding: .625em 0 0 .625em;
-}
-
-.banner-text {
-	text-align: center;
-	@extend %cf;
-	margin: .625em 0;
-}
-
-.intro-content {
-	@include font-size(16px);
-	color: $default-color;
-	@extend %content-space;
-	margin-bottom: 2em;
-}
-
-
-
-/*----------------------------------------------------------------------------*\
-
-	#sections
-
-\*----------------------------------------------------------------------------*/
-
-.section {
-	margin: 1em 0;
-	@extend %cf;
-}
-
-.text-wrap {
-	padding-left: 2em;
-}
-
-/*----------------------------------------------------------------------------*\
-
-	#UI-Panels
-
-	Use panels for UI.
-
-\*----------------------------------------------------------------------------*/
-
-
-%ui-panel {
-	padding: .625em 0;
-	overflow: auto;
-}
-
-.ui-panel_grey {
-	@extend %ui-panel;
-	@extend %cf;
-	background: $light-gray;
-}
-
-
-/*----------------------------------------------------------------------------*\
-
-	#List Items
-
-\*----------------------------------------------------------------------------*/
-
-.solutions-list {
-	margin-top: $default-space;
-	margin-bottom: $default-space;
-}
-
-.solutions-list li {
-	margin: .3125em 0;
-	a {
-		@extend %td-none;
-		color: #777;
-		@include font-size(20px);
-	}
-}
-
-/*----------------------------------------------------------------------------*\
-
-	#Accordion Styles
-
-\*----------------------------------------------------------------------------*/
-
-.accordion-container {
-	@include box-sizing(border-box);
-}
-
-/*----------------------------------------------------------------------------*\
-
-	#Accordion Text
-
-\*----------------------------------------------------------------------------*/
-
-.accordion-text {
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: $default-space;
-
-	li {
-		@include font-size(16px);
-	}
-}
-
-.accordion-text > p {
-	@include font-size(16px);
-	font-weight: 400;
-}
-
-/**
- * Accordion Footer
- */
-
- .accordion-footer {
- 	@include font-size(15px);
- 	color: $lincoln-red;
- 	text-align: center;
-	font-weight: 600;
-	@extend %cf;
-	margin-top: $default-space;
-	margin-bottom: $default-space;
- }
-
-.accordion-header {
-	background: #e7e8e9;
-
-
-	.accordion-header-label {
-		@include font-size(22px);
-		vertical-align: middle;
+	.header_upper {
+		@extend .header;
 		text-transform: uppercase;
-		color: #be1e2d;
-		padding: .3125em 0;
-		padding-left: 1em;
-
 	}
-}
-
-.accordion-toggle {
-	display: block;
-	@include font-size(26px);
-	padding: .625em 0 .625em 1em;
-	text-transform: uppercase;
-	text-decoration: none;
-	background: $light-gray;
-	border-bottom: thin solid #333;
-	@extend .header;
-	
-	&:focus {
-		outline: none;
-	}
-}
-
-
-.accordion-content {
-	display: none;
-	@extend %pos_relative;
-	@extend %cf;
-
-	// If we want to diplay one of the accordions as open by default - we can
-	&.open {
-		display: block;
-	}
-}
-
-.accordion-container {
-	@extend %pos_relative;
-	@extend %cf;
-}
-.accordion-footer {
-	text-align: center;
-	color: $lincoln-red;
-	font-weight: 600;
-}
-
-.toggle-icon {
-	position: absolute;
-	top: 9px;
-	right: 20px;
-	font-size: 1.5em;
-}
-
-.automation {
-	@include box-sizing(border-box);
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 100%;
-	line-height: 1.5;
-	font-weight: 400;
-	color: #333;
-}
-
-
-.content > p,.text-content > p, .primary-content > p {
-	@include font-size(16px);
-}
-
-.hero-container {
-	margin-bottom: 3em;
-	width: 100%;
-	height: 175px;
-	overflow: hidden;
-}
-
-
-/*----------------------------------------------------------------------------*\
-
-	#Subcontent-containers
-
-\*----------------------------------------------------------------------------*/
-
-.sub-content-container {
-	@extend .row;
-	margin-top: $default-space;
-	margin-bottom: $default-space;
-
-	&.wrap {
-		margin-top: 0;
-	}
-}
-
-/*----------------------------------------------------------------------------*\
-
-	#accordion-row width
-
-\*----------------------------------------------------------------------------*/
-
-.accordion-container > .row {
-	max-width: 98%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-
