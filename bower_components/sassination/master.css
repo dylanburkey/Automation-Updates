@@ -109,14 +109,16 @@
 \*----------------------------------------------------------------------------*/
 .marketing-page:after, .sharepoint:after, .section-wrap:after, .base-container:after, .row:after,
 .row-container:after,
-.image-container:after {
+.image-container:after,
+.group:after, .lincoln-bucket:after {
   content: "";
   clear: both;
   display: block; }
 
 .sharepoint, .section-wrap, .base-container, .row,
 .row-container,
-.image-container {
+.image-container,
+.group, .lincoln-bucket {
   position: relative; }
 
 /*----------------------------------------------------------------------------*\
@@ -439,12 +441,28 @@ table {
 \*----------------------------------------------------------------------------*/
 .row.first,
 .first.row-container,
-.first.image-container {
+.first.image-container,
+.group.first {
   margin-top: 0; }
 .row.vspace,
 .vspace.row-container,
-.vspace.image-container {
+.vspace.image-container,
+.group.vspace {
   margin-top: 2em; }
+.row p,
+.row-container p,
+.image-container p,
+.group p {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5; }
+
+/**
+ * Visual Borders for .row
+ */
+.visual-border {
+  border-top: medium solid #333; }
 
 /*----------------------------------------------------------------------------*\
 
@@ -491,8 +509,11 @@ table {
   font-weight: 600;
   text-transform: capitalize; }
 
-.header_upper {
+.header_upper, .tabs li {
   text-transform: uppercase; }
+
+.header_center {
+  text-align: center; }
 
 /**
  * UI Header
@@ -502,7 +523,7 @@ table {
 
 .ui-header_text {
   padding: .325em 0;
-  text-indent: 10px; }
+  text-indent: .325em; }
 
 /*----------------------------------------------------------------------------*\
 
@@ -514,13 +535,24 @@ table {
   padding-left: 0;
   margin-top: 0; }
 
-.tabs li {
-  background: #F8F8F8;
-  border-bottom: 1px solid #777;
-  padding: 5px 0;
-  color: #be1e2d;
-  text-indent: .325em;
-  text-transform: capitalize; }
+.tabs {
+  min-height: 100%;
+  background: #F8F8F8; }
+  .tabs li {
+    background: #F8F8F8;
+    border-bottom: 1px solid #777;
+    padding: 5px 0;
+    color: #be1e2d;
+    text-indent: .625em;
+    cursor: pointer;
+    font-size: 14px;
+    font-size: 0.875rem;
+    line-height: 1.71429;
+    /*
+    &:hover,&.active {
+    	background: #ddd;
+    }
+    */ }
 
 /*----------------------------------------------------------------------------*\
 
@@ -530,5 +562,33 @@ table {
 .content-section {
   background: #F8F8F8;
   padding: 1em; }
+
+/*----------------------------------------------------------------------------*\
+
+	#Lincoln-Buckets
+
+\*----------------------------------------------------------------------------*/
+.lincoln-bucket {
+  border: .325em solid #ccc; }
+  .lincoln-bucket .header, .lincoln-bucket .header_upper, .lincoln-bucket .tabs li, .tabs .lincoln-bucket li {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0; }
+  .lincoln-bucket .bucket-content {
+    margin: 2em 0;
+    max-width: 90%;
+    padding: 0 5%; }
+    .lincoln-bucket .bucket-content .headline-5,
+    .lincoln-bucket .bucket-content .headline-6 {
+      color: #be1e2d;
+      font-weight: 600; }
+    .lincoln-bucket .bucket-content .bucket-text > p {
+      font-size: 14px;
+      font-size: 0.875rem;
+      line-height: 1.71429; }
 
 /*# sourceMappingURL=master.css.map */

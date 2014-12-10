@@ -9,7 +9,7 @@
 @import "styles/sass/config";
 @import "styles/sass/extends/extends";
 @import "styles/sass/functions/mixins";
-@import "styles/sass/libs/normalize";
+//@import "styles/sass/libs/normalize";
 
 $default-space: 2em;
 $default-space-small: 1em;
@@ -184,7 +184,9 @@ $default-space-small: 1em;
 \*----------------------------------------------------------------------------*/
 
 .row,
-%row {
+%row,
+.group,
+%group {
 	@extend %pos_relative;
 	@extend %cf;
 	&.first {
@@ -194,7 +196,21 @@ $default-space-small: 1em;
 		margin-top: $default-space;
 	}
 
+	p {
+		font-family: Helvetica, arial, sans-serif;
+		@include font-size(16px);
+	}
 }
+
+/**
+ * Visual Borders for .row
+ */
+
+ .visual-border {
+ 	border-top: medium solid #333;
+ }
+
+
 
 
 .row-container {
@@ -248,6 +264,9 @@ $default-space-small: 1em;
 		@extend .header;
 		text-transform: uppercase;
 	}
+	.header_center {
+		text-align: center;
+	}
 
 /**
  * UI Header
@@ -259,7 +278,7 @@ $default-space-small: 1em;
 
  	.ui-header_text {
 		padding: .325em 0;
-		text-indent: 10px;
+		text-indent: .325em;
  	}
 
 /*----------------------------------------------------------------------------*\
@@ -277,14 +296,22 @@ $default-space-small: 1em;
 
 .tabs {
 	@extend %no-bullets;
+	min-height: 100%;
+	background: $light-gray;
 	li {
 		background: $light-gray;
 		border-bottom: 1px solid #777;
 		padding: 5px 0;
 		color: $lincoln-red;
-		text-indent: .325em;
-		text-transform: capitalize;
-		@extend .header;
+		text-indent: .625em;
+		@extend .header_upper;
+		cursor: pointer;
+		@include font-size(14px);
+		/*
+		&:hover,&.active {
+			background: #ddd;
+		}
+		*/
 	}
 }
 
@@ -297,4 +324,38 @@ $default-space-small: 1em;
 .content-section {
 	background: $light-gray;
 	padding: $default-space-small;
+}
+
+/*----------------------------------------------------------------------------*\
+
+	#Lincoln-Buckets
+
+\*----------------------------------------------------------------------------*/
+
+.lincoln-bucket {
+	border: .325em solid #ccc;
+	.header {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		background: #333;
+		color: #fff;
+		text-align: center;
+		padding: $default-space-small 0;
+	}
+	.bucket-content {
+		.headline-5,
+		.headline-6 {
+			color: $lincoln-red;
+			font-weight: 600;
+		}
+		margin: $default-space 0;
+		max-width: 90%;
+		padding: 0 5%;
+		.bucket-text > p {
+			@include font-size(14px);
+		}
+	}
+	@extend %pos_relative;
+	@extend %cf;
 }
