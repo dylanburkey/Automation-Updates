@@ -51,7 +51,8 @@ $default-space-small: 1em;
  * Image Container Styles
  */
 
- .image-container > img {
+ .img-container img,
+ .image-container {
  	max-width: 100%;
  }
 
