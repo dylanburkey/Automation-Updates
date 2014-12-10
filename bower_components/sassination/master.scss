@@ -47,6 +47,13 @@ $default-space-small: 1em;
 	@extend %cf;
 }
 
+/**
+ * Image Container Styles
+ */
+
+ .image-container > img {
+ 	max-width: 100%;
+ }
 
 
 
