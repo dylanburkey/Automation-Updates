@@ -1,0 +1,17 @@
+<html ng-app="phonecatApp">
+<head>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../js/controller.js"></script>
+</head>
+<body ng-controller="PhoneListCtrl">
+
+        <ul class="phones">
+          <li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail">
+            <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
+            <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+            <p>{{phone.snippet}}</p>
+          </li>
+        </ul>
+
+</body>
+</html>

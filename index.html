@@ -1,4 +1,7 @@
-
+<!doctype html>
+	<html lang="en_US" >
+		<head>
+			<meta charset="utf-8">
 <link rel="stylesheet" href="bower_components/sassination/master.css">
 
 <!--
@@ -14,7 +17,12 @@
 End CSS
 ===================================================
 -->
-			<div class="marketing-page sharepoint">
+<script src="bower_components/angular/angular.js"></script>
+<script src="js/controller.js"></script>
+</head>
+<body>
+			<div class="marketing-page sharepoint" ng-app="phonecatApp">
+				<div class="angular-page" ng-controller="PhoneListCtrl">
 				<div class="row-container">
 					<div class="row" role="group">
 						<div class="image-container">
@@ -39,6 +47,7 @@ End CSS
 						</div>
 					</div>
 					<div class="row">
+
 						<div class="solutions-container">
 							<div class="col-3">
 								<div class="row">
@@ -70,6 +79,13 @@ End CSS
 												<p>There’s no arguing that robots are reliable. They are there every day and can work without stopping. They consistently produce accurate, high quality work, which can be monitored. Today’s robotic software allows companies to improve the tracking of manufacturing processes by calculating data in “real time.” It may be simpler than you think to justify robotic automation if your goals are to decrease manufacturing cost and increase weld or cut quality.</p>
 
 												<p>SEE HOW CONXTECH AUTOMATED THEIR WELDING PROCESS<p>
+
+												<ul class="angular">
+					    <li ng-repeat="phone in phones">
+					      <span>{{phone.name}}</span>
+					      <p>{{phone.snippet}}</p>
+					    </li>
+					  </ul>
 											</div><!-- /.tab-container -->
 										</div><!-- /#tab1 -->
 										<div id="tab2" class="tab-content">
@@ -217,6 +233,7 @@ End CSS
 						</div><!-- /.group.vspace -->
 					</div><!-- /.row.vspace -->
 				</div><!-- /.row-container -->
+				</div><!-- /.angular-page -->
 			</div><!-- /.marketing-page -->
 			<!-- Start Tab Script
 			===================================================== -->
@@ -257,3 +274,5 @@ End CSS
 
 
 			</script>
+		</body>
+	</html>	
