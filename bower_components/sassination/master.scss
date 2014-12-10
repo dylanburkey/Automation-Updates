@@ -13,6 +13,7 @@
 
 $default-space: 2em;
 $default-space-small: 1em;
+$content-font-size: 14px;
 
 /**
  * Light Gray Variables
@@ -55,6 +56,19 @@ $default-space-small: 1em;
  .image-container {
  	max-width: 100%;
  }
+
+.sub-group-container {
+	ul {
+		font-family: Helvetica, arial, sans-serif;
+		padding-left: 0;
+		list-style-position: inside;
+		@include font-size($content-font-size);
+	}
+	.headline-5 {
+		margin: $default-space-small 0;
+	}
+	@extend %cf;
+}
 
 
 
@@ -206,8 +220,15 @@ $default-space-small: 1em;
 
 	p {
 		font-family: Helvetica, arial, sans-serif;
-		@include font-size(16px);
+		@include font-size($content-font-size);
 	}
+
+}
+
+.content-container {
+	max-width: 95%;
+	margin: 0 2.5%;
+	@extend %pos_relative;
 }
 
 /**
@@ -304,22 +325,25 @@ $default-space-small: 1em;
 
 .tabs {
 	@extend %no-bullets;
-	min-height: 100%;
 	background: $light-gray;
 	li {
 		background: $light-gray;
 		border-bottom: 1px solid #777;
-		padding: 5px 0;
+		padding: 1em 0;
 		color: $lincoln-red;
 		text-indent: .625em;
 		@extend .header_upper;
 		cursor: pointer;
-		@include font-size(14px);
+		@include font-size(16px);
 		/*
 		&:hover,&.active {
 			background: #ddd;
 		}
 		*/
+	}
+	.icon {
+		margin-right: $default-space-small;
+		float: right;
 	}
 }
 
@@ -330,7 +354,6 @@ $default-space-small: 1em;
 \*----------------------------------------------------------------------------*/
 
 .content-section {
-	background: $light-gray;
 	padding: $default-space-small;
 }
 
@@ -340,8 +363,12 @@ $default-space-small: 1em;
 
 \*----------------------------------------------------------------------------*/
 
+.lincoln-bucket-a,
+.lincoln-bucket-b,
+.lincoln-bucket-c,
 .lincoln-bucket {
 	border: .325em solid #ccc;
+	min-height: 428px;
 	.header {
 		position: absolute;
 		top: 0;
